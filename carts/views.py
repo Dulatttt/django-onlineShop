@@ -51,7 +51,7 @@ class AddToCartAjax(View):
     def post(self, request, product_id, *args, **kwargs):
         if not self.request.user.is_authenticated:
             return JsonResponse({
-                'error': 'In order to add item to cart please create an account'
+                'error': 'Прежде чем делать заказ, авторизуйтесь'
             }, status=401)
         if self.request.is_ajax:
             product = get_object_or_404(Product, pk=product_id)
